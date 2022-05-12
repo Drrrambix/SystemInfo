@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CPUInfo" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAJiAYBAAAECAEIAAEBAwAAICEACAAASBAAQAAAEA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\cpuinfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPUInfoDelegate" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAABCAAAAAAQAAQBABIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\cpuinfodelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUInfo" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAIAAoAggNQAAAIAQsJIAIDgAECQAQEFAACAgCCAA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\gpuinfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GPUInfoDelegate" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAQgACAAAAAARAAABgAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\gpuinfodelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotherboardInfo" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIGAJQAEAIAAAIQEMBMCIAAAEAAAAAAAAAAAACgA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\motherboardinfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotherboardInfoDelegate" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQEACAAAAAAUAAAAAASIAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\motherboardinfodelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSInfo" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEOmBYxwkIIRCKIEAMxMABAgYECwEAgAIQJQgQArA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\osinfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OSInfoDelegate">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAIAAAAAABAIAAAABAAAAAAAAAAAgCAAAAAAAE=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\osinfodelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RAMInfo" Collapsed="true">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAIUA4AgEAAAAAICIEBEQCEwAEQgCIEAAIIAACAgA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\raminfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RAMInfoDelegate">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAAAAAQAAAAAAAQEAAAAAABAAAAgAACAAACA=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\raminfodelegate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemCommand" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACYAggACAgIBEAsDAgQEwRACAgBhAiALBQAAhE=</HashCode>
+      <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\systemcommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
