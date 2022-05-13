@@ -1,7 +1,5 @@
 #include "cpuinfo.h"
 
-const std::string CPUInfo::TEMPERATURE_QUERY_STRING = "wmic /namespace:\\\\root\\wmi PATH MSAcpi_ThermalZoneTemperature get CurrentTemperature";
-const std::string CPUInfo::TEMPERATURE_ERROR_IDENTIFIER_STRING = "ERROR:";
 const std::string CPUInfo::CLOCK_SPEED_QUERY_STRING = "wmic cpu get /format:list | findstr /R /C:CurrentClockSpeed=";
 const std::string CPUInfo::CURRENT_CLOCK_SPEED_IDENTIFIER_STRING = "CurrentClockSpeed=";
 const std::string CPUInfo::NAME_IDENTIFIER_STRING = "Name=";
@@ -150,40 +148,6 @@ std::string CPUInfo::currentClockSpeed() const
 	return clockSpeed;
 }
 
-std::string CPUInfo::currentTemperature() const
-{
-	//NOTE: THIS IS NOT SUPPORTED BY ALL COMPUTERS!!!
-	std::string temperature{ "" };
-    SystemCommand systemCommand{ TEMPERATURE_QUERY_STRING };
-    systemCommand.execute();
-	if (!systemCommand.hasError()) {
-		std::vector<std::string> raw{ systemCommand.outputAsVector() };
-		for (auto iter = raw.begin(); iter != raw.end(); iter++) {
-			if (iter->find(TEMPERATURE_ERROR_IDENTIFIER_STRING)) {
-				temperature = "Unknown";
-			} else {
-				std::string rawTemp = *(raw.begin() + 1);
-				try {
-					int tempInKelvin = std::stoi(rawTemp);
-					int tempInCelcius = kelvinToCelcius(tempInKelvin);
-					temperature = toString(tempInCelcius) + "C";
-				} catch (std::exception &e) {
-					(void)e;
-					temperature = "Unknown";
-				}
-			}
-        }
-    } else {
-        temperature = "Unknown";
-    }
-    return temperature;
-}
-
-
-int CPUInfo::kelvinToCelcius(int tempInKelvin) const
-{
-    return tempInKelvin - 273;
-}
 
 std::string CPUInfo::getArchitecture(std::string &dataWidth) const
 {

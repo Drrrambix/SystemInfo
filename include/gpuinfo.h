@@ -16,41 +16,31 @@ public:
 	GPUInfo::GPUInfo(const std::vector<std::string> &rawData, int cpuNumber);
     std::string name() const;
     std::string manufacturer() const;
-    std::string caption() const;
-    std::string adapterRAM() const;
-    std::string refreshRate() const;
+    
+   
     std::string driverVersion() const;
     std::string videoArchitecture() const;
-    std::string videoMemoryType() const;
-    std::string videoModeDescription() const;
+   
     std::string videoProcessor() const;
 	int gpuNumber() const;
 
 private:
     std::string _name;
     std::string _manufacturer;
-    std::string _caption;
-    std::string _adapterRAM;
-    std::string _refreshRate;
+   
+    
+    
     std::string _driverVersion;
     std::string _videoArchitecture;
-    std::string _videoMemoryType;
-    std::string _videoModeDescription;
+   
+    
     std::string _videoProcessor;
 	int _gpuNumber;
 
     std::string getVideoArchitecture(const std::string &videoArchitectureString) const;
     std::string getVideoMemoryType(const std::string &videoMemoryTypeString) const;
 
-    template <typename T>
-    std::string toString(const T &convert) const
-    {
-        std::stringstream transfer;
-        std::string returnString;
-        transfer << convert;
-        transfer >> returnString;
-        return returnString;
-    }
+    
 
     static const std::string NVIDIA_IDENTIFIER_STRING;
     static const std::string INTEL_IDENTIFIER_STRING;

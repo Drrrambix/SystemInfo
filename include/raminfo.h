@@ -39,15 +39,7 @@ private:
     std::string getMemoryType(const std::string &memoryTypeString) const;
     std::string getFormFactor(const std::string &formFactorString) const;
 
-    template<typename T>
-    std::string toString(const T &convert) const
-    {
-        std::stringstream transfer;
-        std::string returnString;
-        transfer << convert;
-        transfer >> returnString;
-        return returnString;
-    }
+   
 
 	static const std::string NAME_IDENTIFIER_STRING;
 	static const std::string MANUFACTURER_IDENTIFIER_STRING;

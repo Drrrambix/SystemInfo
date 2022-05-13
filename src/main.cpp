@@ -28,8 +28,7 @@ int main(int argc, char *argv[])
 		std::cout << "Current CPU Clock Speed = " << iter->currentClockSpeed() << std::endl;
 		std::cout << "CPU Architecture = " << iter->architecture() << std::endl;
 		std::cout << "CPU L2 Cache Size = " << iter->L2CacheSize() << std::endl;
-		std::cout << "CPU L3 Cache Size = " << iter->L3CacheSize() << std::endl;
-		std::cout << "Current CPU Temperature = " << iter->currentTemperature() << std::endl;
+		std::cout << "CPU L3 Cache Size = " << iter->L3CacheSize() << std::endl;		
 		std::cout << std::endl;
 	}
     
@@ -71,12 +70,10 @@ int main(int argc, char *argv[])
         std::cout << "Information for GPU #" << iter->gpuNumber()+1 << ": " << std::endl;
         std::cout << "GPU Name = " << iter->name() << std::endl;
         std::cout << "GPU Manufacturer = " << iter->manufacturer() << std::endl;
-        std::cout << "GPU Caption = " << iter->caption() << std::endl;
-        std::cout << "GPU Adapter RAM = " << iter->adapterRAM() << std::endl;
-        std::cout << "GPU Refresh Rate = " << iter->refreshRate() << std::endl;
+       
         std::cout << "GPU Driver Version = " << iter->driverVersion() << std::endl;
         std::cout << "GPU Video Architecture = " << iter->videoArchitecture() << std::endl;
-        std::cout << "GPU Video Mode Description = " << iter->videoModeDescription() << std::endl;
+       
         std::cout << "GPU Video Processor = " << iter->videoProcessor() << std::endl;
         std::cout << std::endl;
     }
@@ -97,7 +94,7 @@ int main(int argc, char *argv[])
 		std::cout << "Boot Device = " << iter->bootDevice() << std::endl;
 		std::cout << "Total Virtual Memory = " << iter->totalVirtualMemory() << std::endl;
 		std::cout << "Total Visible Memory = " << iter->totalVisibleMemory() << std::endl;
-		std::cout << "Total Swap Size = " << iter->totalSwapSize() << std::endl;
+		
 		std::cout << "Serial Number = " << iter->serialNumber() << std::endl;
 		std::cout << "Free Physical Memory = " << iter->freePhysicalMemory() << std::endl;
 		std::cout << "Free Virtual Memory = " << iter->freeVirtualMemory() << std::endl;

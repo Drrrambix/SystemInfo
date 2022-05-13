@@ -98,13 +98,7 @@ private:
 		container.push_back(lambdaFunction(thingToAdd));
 	}
     
-    template <typename T>
-    void logDataMember (const std::string & nameOfDataMemberToLog, const T &dataMemberToLog) { std::cout << nameOfDataMemberToLog << " = " << toString(dataMemberToLog) << std::endl; }
-    
-    template <typename T>
-    void logDataMember (const T &dataMemberToLog) { std::cout << toString(dataMemberToLog) << std::endl; }
-
-    void logString(const std::string &stringToLog) { std::cout << stringToLog << std::endl; }
+   
 };
 
 #endif //SYSTEMCOMMAND_H

@@ -17,13 +17,11 @@ const std::string GPUInfo::CAPTION_IDENTIFIER_STRING = "Caption=";
 GPUInfo::GPUInfo(const std::vector<std::string> &rawData, int gpuNumber) :
     _name{ "" },
     _manufacturer{ "" },
-    _caption{ "" },
-    _adapterRAM{ "" },
-    _refreshRate{ "" },
+    
     _driverVersion{ "" },
     _videoArchitecture{ "" },
-    _videoMemoryType{ "" },
-    _videoModeDescription{""},
+   
+    
     _videoProcessor {""},
 	_gpuNumber{gpuNumber}
 {
@@ -41,36 +39,11 @@ GPUInfo::GPUInfo(const std::vector<std::string> &rawData, int gpuNumber) :
             this->_manufacturer = iter->substr(foundPosition + MANUFACTURER_IDENTIFIER_STRING.length());
         }
 
-        //Caption
-        if ((iter->find(CAPTION_IDENTIFIER_STRING) != std::string::npos) && (iter->find(CAPTION_IDENTIFIER_STRING) == 0)) {
-            size_t foundPosition = iter->find(CAPTION_IDENTIFIER_STRING);
-            this->_caption = iter->substr(foundPosition + CAPTION_IDENTIFIER_STRING.length());
-        }
+       
 
-        //Adapter RAM
-        if ((iter->find(ADAPTER_RAM_IDENTIFIER_STRING) != std::string::npos) && (iter->find(ADAPTER_RAM_IDENTIFIER_STRING) == 0)) {
-            size_t foundPosition = iter->find(ADAPTER_RAM_IDENTIFIER_STRING);
-            std::string capacityString = iter->substr(foundPosition + ADAPTER_RAM_IDENTIFIER_STRING.length());
-            long long int capacity{ 0 };
-            try {
-                capacity = std::stoll(capacityString);
-                this->_adapterRAM = toString(capacity / 1000000) + "MB (" + toString(capacity) + " Bytes)";
-            } catch (std::exception &e) {
-                (void)e;
-                this->_adapterRAM = capacityString + " Bytes";
-            }
-        }
+       
 
-        //Refresh Rate
-        if ((iter->find(REFRESH_RATE_IDENTIFIER_STRING) != std::string::npos) && (iter->find(REFRESH_RATE_IDENTIFIER_STRING) == 0)) {
-            size_t foundPosition = iter->find(REFRESH_RATE_IDENTIFIER_STRING);
-            this->_refreshRate = iter->substr(foundPosition + REFRESH_RATE_IDENTIFIER_STRING.length()) + "MHz";
-            if (this->_refreshRate == "MHz") {
-                this->_refreshRate = "";
-            }
-
-        }
-
+      
         //Driver Version
         if ((iter->find(DRIVER_VERSION_IDENTIFIER_STRING) != std::string::npos) && (iter->find(DRIVER_VERSION_IDENTIFIER_STRING) == 0)) {
             size_t foundPosition = iter->find(DRIVER_VERSION_IDENTIFIER_STRING);
@@ -84,18 +57,7 @@ GPUInfo::GPUInfo(const std::vector<std::string> &rawData, int gpuNumber) :
             this->_videoArchitecture = getVideoArchitecture(videoArchitectureString);
         }
 
-        //Video Memory Type
-        if ((iter->find(VIDEO_MEMORY_TYPE_IDENTIFIER_STRING) != std::string::npos) && (iter->find(VIDEO_MEMORY_TYPE_IDENTIFIER_STRING) == 0)) {
-            size_t foundPosition = iter->find(VIDEO_MEMORY_TYPE_IDENTIFIER_STRING);
-            std::string videoMemoryTypeString = iter->substr(foundPosition, VIDEO_MEMORY_TYPE_IDENTIFIER_STRING.length());
-            this->_videoMemoryType = getVideoMemoryType(videoMemoryTypeString);
-        }
-
-        //Video Mode Description
-        if ((iter->find(VIDEO_MODE_DESCRIPTION_IDENTIFIER_STRING) != std::string::npos) && (iter->find(VIDEO_MODE_DESCRIPTION_IDENTIFIER_STRING) == 0)) {
-            size_t foundPosition = iter->find(VIDEO_MODE_DESCRIPTION_IDENTIFIER_STRING);
-            this->_videoModeDescription = iter->substr(foundPosition + VIDEO_MODE_DESCRIPTION_IDENTIFIER_STRING.length());
-        }
+       
 
         //Video Processor
         if ((iter->find(VIDEO_PROCESSOR_IDENTIFIER_STRING) != std::string::npos) && (iter->find(VIDEO_PROCESSOR_IDENTIFIER_STRING) == 0)) {
@@ -110,27 +72,16 @@ GPUInfo::GPUInfo(const std::vector<std::string> &rawData, int gpuNumber) :
     if (this->_manufacturer == "") {
         this->_manufacturer = "Unknown";
     }
-    if (this->_caption == "") {
-        this->_caption = "Unknown";
-    }
-    if (this->_adapterRAM == "") {
-        this->_adapterRAM = "Unknown";
-    }
-    if (this->_refreshRate == "") {
-        this->_refreshRate = "Unknown";
-    }
+  
+    
+  
     if (this->_driverVersion == "") {
         this->_driverVersion = "Unknown";
     }
     if (this->_videoArchitecture == "") {
         this->_videoArchitecture = "Unknown";
     }
-    if (this->_videoMemoryType == "") {
-        this->_videoMemoryType = "Unknown";
-    }
-    if (this->_videoModeDescription == "") {
-        this->_videoModeDescription = "Unknown";
-    }
+    
     if (this->_videoProcessor == "") {
         this->_videoProcessor = "Unknown";
     }
@@ -201,20 +152,10 @@ std::string GPUInfo::manufacturer() const
     return this->_manufacturer;
 }
 
-std::string GPUInfo::caption() const
-{
-    return this->_caption;
-}
 
-std::string GPUInfo::adapterRAM() const
-{
-    return this->_adapterRAM;
-}
 
-std::string GPUInfo::refreshRate() const
-{
-    return this->_refreshRate;
-}
+
+
 
 std::string GPUInfo::driverVersion() const
 {
@@ -231,15 +172,8 @@ std::string GPUInfo::videoProcessor() const
     return this->_videoProcessor;
 }
 
-std::string GPUInfo::videoMemoryType() const
-{
-    return this->_videoMemoryType;
-}
 
-std::string GPUInfo::videoModeDescription() const
-{
-    return this->_videoModeDescription;
-}
+
 
 int GPUInfo::gpuNumber() const
 {

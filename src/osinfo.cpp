@@ -13,8 +13,6 @@ const std::string OSInfo::BOOT_DEVICE_IDENTIFIER_STRING = "BootDevice=";
 const std::string OSInfo::SERIAL_NUMBER_IDENTIFIER_STRING = "SerialNumber=";
 const std::string OSInfo::TOTAL_VIRTUAL_MEMORY_SIZE_IDENTIFIER_STRING = "TotalVirtualMemorySize=";
 const std::string OSInfo::TOTAL_VISIBLE_MEMORY_SIZE_IDENTIFIER_STRING = "TotalVisibleMemorySize=";
-const std::string OSInfo::TOTAL_SWAP_SIZE_IDENTIFIER_STRING = "TotalSwapSize=";
-
 const std::string OSInfo::FREE_PHYSICAL_MEMORY_IDENTIFIER_STRING = "FreePhysicalMemory=";
 const std::string OSInfo::FREE_PHYSICAL_MEMORY_QUERY_STRING = "wmic os get /format:list | findstr /R /C:FreePhysicalMemory=";
 
@@ -48,7 +46,7 @@ OSInfo::OSInfo(const std::vector<std::string> &rawData, int osNumber) :
 	_serialNumber{""},
 	_totalVirtualMemory{""},
 	_totalVisibleMemory{""},
-	_totalSwapSize{""},
+	
 	_osNumber{osNumber}
 	
 {
@@ -158,26 +156,7 @@ OSInfo::OSInfo(const std::vector<std::string> &rawData, int osNumber) :
 			}
 		}
 
-		//Total Swap Size
-		if ((iter->find(TOTAL_SWAP_SIZE_IDENTIFIER_STRING) != std::string::npos) && (iter->find(TOTAL_SWAP_SIZE_IDENTIFIER_STRING) == 0)) {
-			size_t foundPosition = iter->find(TOTAL_VISIBLE_MEMORY_SIZE_IDENTIFIER_STRING);
-			std::string totalSwapSizeString = iter->substr(foundPosition + TOTAL_SWAP_SIZE_IDENTIFIER_STRING.length());
-			if (totalSwapSizeString == "") {
-				this->_totalSwapSize = "";
-				continue;
-			}
-			else {
-				long long int totalSwapSize{ 0 };
-				try {
-					totalSwapSize = std::stoll(totalSwapSizeString);
-					this->_totalVisibleMemory = toString(totalSwapSize / KILOBYTES_PER_MEGABYTE) + "MB (" + toString(totalSwapSize) + " KB)";
-				}
-				catch (std::exception &e) {
-					(void)e;
-					this->_totalSwapSize = totalSwapSizeString + " KB";
-				}
-			}
-		}
+		
 	}
 	//In case any of these values are missing or don't get assigned
 	if (this->_name == "") {
@@ -219,9 +198,7 @@ OSInfo::OSInfo(const std::vector<std::string> &rawData, int osNumber) :
 	if ((this->_totalVisibleMemory == "") || (this->_totalVisibleMemory == " KB")) {
 		this->_totalVisibleMemory = "Unknown";
 	}
-	if ((this->_totalSwapSize == "") || (this->_totalSwapSize == " KB")) {
-		this->_totalSwapSize = "Unknown";
-	}
+	
 }
 
 std::string OSInfo::name() const
@@ -288,10 +265,7 @@ std::string OSInfo::totalVisibleMemory() const
 	return this->_totalVisibleMemory;
 }
 
-std::string OSInfo::totalSwapSize() const
-{
-	return this->_totalSwapSize;
-}
+
 
 int OSInfo::osNumber() const 
 {

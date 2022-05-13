@@ -28,7 +28,7 @@ public:
 	std::string serialNumber() const;
 	std::string totalVirtualMemory() const;
 	std::string totalVisibleMemory() const;	
-	std::string totalSwapSize() const;
+	
 	int osNumber() const;
 
 	std::string freePhysicalMemory() const;
@@ -55,15 +55,7 @@ private:
 
 	int _osNumber;
 
-    template <typename T> 
-	std::string toString(const T &convert) const
-    {
-        std::stringstream transfer;
-        std::string returnString;
-        transfer << convert;
-        transfer >> returnString;
-        return returnString;
-    }
+    
 
 	static const std::string NAME_IDENTIFIER_STRING;
 	static const std::string MANUFACTURER_IDENTIFIER_STRING;

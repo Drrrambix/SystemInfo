@@ -29,15 +29,7 @@ private:
 	std::string _version;
 	int _motherboardNumber;
 
-	template <typename T>
-	std::string toString(const T &convert) const
-	{
-		std::stringstream transfer;
-		std::string returnString;
-		transfer << convert;
-		transfer >> returnString;
-		return returnString;
-	}
+	
 
 	void determineChipset();
 

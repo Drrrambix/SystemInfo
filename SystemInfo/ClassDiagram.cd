@@ -35,14 +35,14 @@
       <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\motherboardinfo.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MotherboardInfoDelegate" Collapsed="true">
+  <Class Name="MotherboardInfoDelegate">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQEACAAAAAAUAAAAAASIAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\motherboardinfodelegate.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OSInfo" Collapsed="true">
+  <Class Name="OSInfo">
     <Position X="2.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQEOmBYxwkIIRCKIEAMxMABAgYECwEAgAIQJQgQArA=</HashCode>
@@ -73,7 +73,7 @@
   <Class Name="SystemCommand" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAACYAggACAgIBEAsDAgQEwRACAgBhAiALBQAAhE=</HashCode>
+      <HashCode>AAAIAACYAggACAAIAAAsDAAAEwRACAgAhAiALBQAABE=</HashCode>
       <FileName>C:\Users\Admin\Desktop\SystemInfo-master\include\systemcommand.h</FileName>
     </TypeIdentifier>
   </Class>
